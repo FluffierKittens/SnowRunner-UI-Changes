@@ -1,0 +1,35 @@
+#include <winver.h>
+#include <ntdef.h>
+
+#ifdef RC_INVOKED
+
+#if DBG
+#define VER_DBG VS_FF_DEBUG
+#else
+#define VER_DBG 0
+#endif
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION             0,1,0,0
+PRODUCTVERSION          0,1,0,0
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "040904b0" 			//US English, Unicode
+        BEGIN
+		VALUE "CompanyName",      "FluffierKittens"
+		VALUE "FileDescription",  "SnowRunner UI Changes Injector"
+		VALUE "FileVersion",      "V0.1.0"
+		VALUE "InternalName",     "SRUICInjector.exe"
+		VALUE "LegalCopyright",   "(C)2023 Ian Nickerson"
+		VALUE "OriginalFilename", "SRUICInjector.exe"
+		VALUE "ProductName",      "SnowRunner UI Changes"
+		VALUE "ProductVersion",	  "V0.1.0"
+        END
+	END
+	BLOCK "VarFileInfo"
+	BEGIN
+		VALUE "Translation", 0x0409,1200
+	END
+END
+#endif
