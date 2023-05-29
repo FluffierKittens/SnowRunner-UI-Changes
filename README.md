@@ -10,18 +10,21 @@ Disables AUTO REVERSE. The only way to reverse is now with the dedicated R gear.
 
 1. Press the quick winch button (Y) once to activate winch view. 
 2. With winch view on, use the camera controls to confirm that you've selected the desired winch point. 
-3. If winch view is on and you no longer wish to connect your winch, press the B button.
+3. If winch view is on and you no longer wish to connect your winch, press the cancel button (B).
 4. With winch view on, press the quick winch button again to connect your winch.
 
 ### Fast Mode (aka "control evacuator")
 
 Entering fast mode shifts your truck into AUTO gear. AUTO REVERSE is enabled, allowing full forward and reverse movement of the truck without exiting fast mode. 
+
 The game's default behaviour is that entering fast mode in L, H, or R leaves you unable to change direction, due to the gear shift UI being replaced. 
+
 Upon exiting fast mode, your original gear setting is restored.
 
 ## Known Issues
 
 The quick winch cancel button (B) is only compatible with Xbox controllers at this time. Testing indicates that [DS4Windows](https://ds4-windows.com/) with [HidHide](https://ds4-windows.com/download/hidhide/), using Xbox 360 emulation mode, also works.
+
 
 This mod is only compatible with SnowRunner.exe version 1.254748.SNOW_DLC9
 
