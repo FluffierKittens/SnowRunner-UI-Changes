@@ -9,7 +9,7 @@ Disables AUTO REVERSE. The only way to reverse is now with the dedicated R gear.
 ### Quick Winch
 
 1. Press the quick winch button (Y) once to activate winch view. 
-![Winch view](https://github.com/FluffierKittens/SnowRunner-UI-Changes/assets/130815166/52c3bf16-d72b-4858-b467-cba4206a7a2a)
+![Winch view](https://github.com/FluffierKittens/SnowRunner-UI-Changes/assets/130815166/2692b2bb-fc6a-41c1-9cf6-b159dacdf568)
 2. With winch view on, use the camera controls to confirm that you've selected the desired winch point. 
 3. If winch view is on and you no longer wish to connect your winch, press the cancel button (B).
 4. With winch view on, press the quick winch button again to connect your winch.
