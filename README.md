@@ -30,7 +30,7 @@ The quick winch cancel button (B) is only compatible with Xbox controllers at th
 This mod is only compatible with SnowRunner.exe version 1.254748.SNOW_DLC9
 
 ## Installation
-1. Download the latest release from here.
+1. Download the latest release from [here](https://github.com/FluffierKittens/SnowRunner-UI-Changes/releases).
 2. Extract *SRUIC.dll* and *SRUICInjector.exe* files from the archive. 
 3. Place *SRUIC.dll* in the game folder where SnowRunner.exe is located. 
 4. Place *SRUICInjector.exe* anywhere that you find convenient. The game folder is just fine.
