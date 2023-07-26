@@ -15,8 +15,6 @@
 void Init();
 BOOL WINAPI DllMain(HINSTANCE hinst, DWORD dwReason, LPVOID reserved);
 
-#define DAR_DLL_NAME L"SRUIC.dll"
-
 //Attaches or detaches hook function Hook_Src to SnowRunner function Src
 #define DETOUR_ATTACH(Src)                                                     \
   DetourAttach(&(PVOID &)Src, (PVOID)Hook_##Src);
@@ -40,7 +38,7 @@ template <typename T> inline T* GetPtrToOffset(int64_t offset) {
     inline auto *Name = GetPtrToOffset<T>(Offset);
 
 //USED BY BOTH Quick Winch AND Disable Auto Reverse
-SR_DECLARE_PTR(0x2E96388, TruckControl*, ppTruckControl) //UPDATED FOR 254748
+SR_DECLARE_PTR(0x2EB7528, TruckControl*, ppTruckControl) 									////UPDATED FOR 291006
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 //QUICK WINCH RELATED
@@ -51,16 +49,16 @@ inline bool WeShouldHandleControls(Vehicle * pVeh, TruckControl * pTC);
 
 Vehicle * GetCurrentVehicle();
 
-SR_DECLARE_PTR(0x2E96378, DriveLogic*, ppDriveLogic) ////UPDATED FOR 254748
+SR_DECLARE_PTR(0x2EB7518, DriveLogic*, ppDriveLogic) 										////UPDATED FOR 291006
 //RRC => Refuel, repair, cargo management
-SR_DECLARE_PTR(0x2EB9DBD, char*, pRRC) ////UPDATED FOR 254748  
-SR_DECLARE_PTR(0x2EA16D5, char*, pRemoveCargo) ////UPDATED FOR 254748
+SR_DECLARE_PTR(0x2EDB1DD, char*, pRRC) 														////UPDATED FOR 291006
+SR_DECLARE_PTR(0x2EC28A5, char*, pRemoveCargo) 												////UPDATED FOR 291006
 
 
-SR_GAME_FUNCTION(0x12B69F0, void, GetControllerState, ControllerState *) //UPDATED FOR 254748
-SR_GAME_FUNCTION(0xB1F310, void, QuickWinch) //UPDATED FOR 254748
+SR_GAME_FUNCTION(0x12D02D0, void, GetControllerState, ControllerState *) 					////UPDATED FOR 291006
+SR_GAME_FUNCTION(0xB1FCE0, void, QuickWinch) 												////UPDATED FOR 291006
 //RTT => Recover, trailer store, task
-SR_GAME_FUNCTION(0x1289EB0, void, RTTSetter, void *, bool) //UPDATED FOR 254748 
+SR_GAME_FUNCTION(0x12A3790, void, RTTSetter, void *, bool) 									////UPDATED FOR 291006
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 //DAR RELATED
@@ -68,10 +66,10 @@ SR_GAME_FUNCTION(0x1289EB0, void, RTTSetter, void *, bool) //UPDATED FOR 254748
 //How long we have to wait, in milliseconds, between "blocked" messages
 #define MIN_MESSAGE_INTERVAL 1000 
 
-SR_GAME_FUNCTION(0xD4F040, bool, ShiftGear, Vehicle*, int32_t) //UPDATED FOR 254748
+SR_GAME_FUNCTION(0xD50460, bool, ShiftGear, Vehicle*, int32_t) 								////UPDATED FOR 291006
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 //FAST MODE RELATED
 /////////////////////////////////////////////////////////////////////////////////////////////
-SR_GAME_FUNCTION(0xB1F220, void, FastModeFlagSetter, Vehicle *, bool) //UPDATED FOR 254748 
-SR_GAME_FUNCTION(0xD4EE10, void, ShiftToAutoGear, Vehicle *) //UPDATED FOR 254748 
+SR_GAME_FUNCTION(0xB1FBF0, void, FastModeFlagSetter, Vehicle *, bool) 						////UPDATED FOR 291006
+SR_GAME_FUNCTION(0xD50230, void, ShiftToAutoGear, Vehicle *) 								////UPDATED FOR 291006

@@ -61,7 +61,7 @@ void Init()
     freopen_s(&file, "CONOUT$", "w", stderr);
 #endif
 
-    CONSOLE_LOG("SnowRunner UI Changes v0.1.0")
+    CONSOLE_LOG("SnowRunner UI Changes v0.1.1")
 
 	//Set our hook
     DetourRestoreAfterWith();
@@ -211,7 +211,7 @@ inline bool WeShouldHandleControls(Vehicle * pVeh, TruckControl * pTC)
 {				
 	if (pTC->bPauseOrMap)
 		return false;
-	if (pTC->bFunctionMenu) //Also true in crane mode
+	if (pTC->bFunctionMenu) //Also true in crane mode and delete trailer
 		return false;
 	
 	if (pRRC != nullptr)
