@@ -56,7 +56,7 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
     }
 
     //Allocate a buffer in SnowRunner process memory for the hook DLL name
-    const WCHAR* dllName = CM_DLL_NAME;
+    const WCHAR* dllName = SRUIC_DLL_NAME;
     SIZE_T memSize = (1 + lstrlenW(dllName)) * sizeof(WCHAR);
     LPWSTR bufDllName = LPWSTR(
         VirtualAllocEx(gameHandle, NULL, memSize, MEM_COMMIT, PAGE_READWRITE));
@@ -105,14 +105,14 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 	
 	if (exitCode == 0)
 	{
-		SHOW_FATAL_ERROR("Failed to inject DLL. Is " CM_DLL_NAME " in the same folder as SnowRunner.exe?")
+		SHOW_FATAL_ERROR("Failed to inject DLL. Is " SRUIC_DLL_NAME " in the same folder as SnowRunner.exe?")
 
         return -1;
 	}
 	
 //If there's no debug console, we at least announce success
-#ifdef DAR_NO_CONSOLE
-	MessageBoxW(NULL, CM_DLL_NAME " successfully injected", L"DAR Injector", MB_ICONINFORMATION);
+#ifdef SRUIC_NO_CONSOLE
+	MessageBoxW(NULL, SRUIC_DLL_NAME " successfully injected", L"SRUIC Injector", MB_ICONINFORMATION);
 #endif
 
 	//If we made it this far, DllMain is now executing in the SnowRunner process

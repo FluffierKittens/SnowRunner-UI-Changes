@@ -4,4 +4,4 @@
 #define SHOW_FATAL_ERROR(Msg) \
 	MessageBoxW(NULL, L##Msg, L"SRUIC Injector: Fatal Error", MB_ICONERROR);
 
-#define CM_DLL_NAME L"SRUIC.dll"
+#define SRUIC_DLL_NAME L"SRUIC.dll"
