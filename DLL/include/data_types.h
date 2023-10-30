@@ -39,20 +39,16 @@ public:
 
 class Vehicle {
 public:
-  char pad_0000[64];						// 0x0000
-  char * sGUID;								// 0x0040	
-  char pad_0048[16];						// 0x0048	
-  uint64_t pTruckAddonModel; 				// 0x0058
-  class TruckAction * pTruckAction;			// 0x0060
-  uint64_t pTruckPostSimulationListener; 	// 0x0068
-  char pad_0070[1752];						// 0x0070
-  char cEngineOnAndMore;					// 0X0748 
-  char pad_0749[111];						// 0x0749
-  Vehicle * pTrailer;						// 0x07B8
-  char pad_7C0[208];						// 0x07C0
-  uint64_t pWinchConstraint;				// 0x0890 
-  char pad_0898[64];						// 0x0898 
-  bool bWinchNeedsEngine;					// 0x08D8 
+  char pad_0000[128];						// 0x0000
+  class TruckAction * pTruckAction;			// 0x0080
+  char pad_0088[1760];						// 0x0088
+  char cEngineOnAndMore;					// 0X0768 
+  char pad_0769[111];						// 0x0769
+  Vehicle * pTrailer;						// 0x07D8
+  char pad_7E0[208];						// 0x07E0
+  uint64_t pWinchConstraint;				// 0x08B0 
+  char pad_08B8[64];						// 0x08B8 
+  bool bWinchNeedsEngine;					// 0x08F8 
 };
 
 class DriveLogic
