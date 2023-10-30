@@ -7,7 +7,6 @@ ULONGLONG lastTickCount;
 
 //Needed for Quick Winch
 bool bHoldingCancel = false;
-bool bRTT = false; 
 
 //Needed for Fast Mode gear adjustments
 uint32_t dOriginalGear = 0;
@@ -34,7 +33,6 @@ BOOL WINAPI DllMain(HINSTANCE hinst, DWORD dwReason, LPVOID reserved)
         DETOUR_DETACH(ShiftGear) //for DAR
 		DETOUR_DETACH(GetControllerState) //for QW
 		DETOUR_DETACH(QuickWinch) //for QW
-		DETOUR_DETACH(RTTSetter) //for QW
 		DETOUR_DETACH(FastModeFlagSetter) //For Fast Mode
 
         DetourTransactionCommit();
@@ -61,7 +59,7 @@ void Init()
     freopen_s(&file, "CONOUT$", "w", stderr);
 #endif
 
-    CONSOLE_LOG("SnowRunner UI Changes v0.1.1")
+    CONSOLE_LOG("SnowRunner UI Changes v0.1.2")
 
 	//Set our hook
     DetourRestoreAfterWith();
@@ -71,7 +69,6 @@ void Init()
     DETOUR_ATTACH(ShiftGear) //for DAR
 	DETOUR_ATTACH(GetControllerState) //for QW
 	DETOUR_ATTACH(QuickWinch) //for QW
-	DETOUR_ATTACH(RTTSetter) //for QW
 	DETOUR_ATTACH(FastModeFlagSetter) //For Fast Mode
 
     DetourTransactionCommit();
@@ -176,6 +173,8 @@ void Hook_GetControllerState(ControllerState * pCS)
 	}
 }
 
+//This function works while in "remove cargo"
+//Trying to cancel winch view at that time will also exit remove cargo 
 void Hook_QuickWinch()
 {
 	DriveLogic * pDL = (DriveLogic *)(*ppDriveLogic);
@@ -206,7 +205,12 @@ void Hook_QuickWinch()
 
 //Returns true if we're in a state where we might want to handle input to control a truck
 //I.e. not paused, in the function menu, or in the map
-//	Not in the refueling menu, repair menu, trailer store, recover prompt, removing cargo, removing trailers, managing cargo, or viewing a task/contract
+//	Not in the refueling menu, repair menu, trailer store, recover prompt, removing trailers, managing cargo, or viewing a task/contract
+
+// As of now, recover prompt, trailer store, and viewing a task can't reliably be detected
+// This was causing control input to be occasionally be ignored until game was paused and resumed
+// I've decided it's better to allow canceling winch view in these three situations 
+// This is minor unexpected behaviour; ignored input was major unexpected behaviour
 inline bool WeShouldHandleControls(Vehicle * pVeh, TruckControl * pTC)
 {				
 	if (pTC->bPauseOrMap)
@@ -220,10 +224,6 @@ inline bool WeShouldHandleControls(Vehicle * pVeh, TruckControl * pTC)
 		if (*((char *)pRRC) == 1)
 			return false;
 	}
-	
-	//Recover, trailer store, task
-	if (bRTT)
-		return false;
 	
 	if (pRemoveCargo != nullptr)
 	{
@@ -298,20 +298,18 @@ void Hook_FastModeFlagSetter(Vehicle * pVehicle, bool bOn)
 					pVehicle->pTruckAction->PowerCoef = fOriginalPowerCoef;
 					pVehicle->pTruckAction->Diff = bOriginalDiff;
 				}
+				else //If we did enter fast mode in auto, make sure we're not leaving in AUTO REVERSE
+				{
+					if (pVehicle->pTruckAction->Gear_1 == -1) 
+					{
+						CONSOLE_LOG("Blocking auto reverse while leaving fast mode.")
+						ShiftGear(pVehicle, 1);
+					}
+				}
 			}
 		}
 	}
 	
 	//Call the base game function
 	FastModeFlagSetter(pVehicle, bOn);
-}
-
-//RTT = Recover, Trailer store, show Task
-void Hook_RTTSetter(void * arg1, bool bOn)
-{
-	//Store the current setting for our own use
-	bRTT = bOn;
-	
-	//Call the base game function
-	RTTSetter(arg1, bOn);
 }
