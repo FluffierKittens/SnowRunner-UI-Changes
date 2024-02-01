@@ -38,7 +38,7 @@ template <typename T> inline T* GetPtrToOffset(int64_t offset) {
     inline auto *Name = GetPtrToOffset<T>(Offset);
 
 //USED BY BOTH Quick Winch AND Disable Auto Reverse
-SR_DECLARE_PTR(0x2EBA438, TruckControl*, ppTruckControl) 									////UPDATED FOR 393364
+SR_DECLARE_PTR(0x2EBDF48, TruckControl*, ppTruckControl) 									////UPDATED FOR 402446
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 //QUICK WINCH RELATED
@@ -49,14 +49,14 @@ inline bool WeShouldHandleControls(Vehicle * pVeh, TruckControl * pTC);
 
 Vehicle * GetCurrentVehicle();
 
-SR_DECLARE_PTR(0x2EBA428, DriveLogic*, ppDriveLogic) 										////UPDATED FOR  393364
+SR_DECLARE_PTR(0x2EBDF38, DriveLogic*, ppDriveLogic) 										////UPDATED FOR 402446
 //RRC => Refuel, repair, cargo management
-SR_DECLARE_PTR(0x2EDE0DD, char*, pRRC) 														////UPDATED FOR 393364
-SR_DECLARE_PTR(0x2EC57B5, char*, pRemoveCargo) 												////UPDATED FOR 393364
+SR_DECLARE_PTR(0x2EE176D, char*, pRRC) 														////UPDATED FOR 402446
+SR_DECLARE_PTR(0x2EC91A5, char*, pRemoveCargo) 												////UPDATED FOR 402446
 
 
-SR_GAME_FUNCTION(0x12D3D10, void, GetControllerState, ControllerState *) 					////UPDATED FOR 393364
-SR_GAME_FUNCTION(0xB1FF50, void, QuickWinch) 												////UPDATED FOR 393364
+SR_GAME_FUNCTION(0x12D8FB0, void, GetControllerState, ControllerState *) 					////UPDATED FOR 402446
+SR_GAME_FUNCTION(0xB20D90, void, QuickWinch) 												////UPDATED FOR 402446
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 //DAR RELATED
@@ -64,10 +64,10 @@ SR_GAME_FUNCTION(0xB1FF50, void, QuickWinch) 												////UPDATED FOR 393364
 //How long we have to wait, in milliseconds, between "blocked" messages
 #define MIN_MESSAGE_INTERVAL 1000 
 
-SR_GAME_FUNCTION(0xD50F00, bool, ShiftGear, Vehicle*, int32_t) 								////UPDATED FOR 393364
+SR_GAME_FUNCTION(0xD53B30, bool, ShiftGear, Vehicle*, int32_t) 								////UPDATED FOR 402446
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 //FAST MODE RELATED
 /////////////////////////////////////////////////////////////////////////////////////////////
-SR_GAME_FUNCTION(0xB1FE60, void, FastModeFlagSetter, Vehicle *, bool) 						////UPDATED FOR 393364
-SR_GAME_FUNCTION(0xD50CB0, void, ShiftToAutoGear, Vehicle *) 								////UPDATED FOR 393364
+SR_GAME_FUNCTION(0xB20CA0, void, FastModeFlagSetter, Vehicle *, bool) 						////UPDATED FOR 402446
+SR_GAME_FUNCTION(0xD538E0, void, ShiftToAutoGear, Vehicle *) 								////UPDATED FOR 402446
