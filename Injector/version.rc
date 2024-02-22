@@ -10,8 +10,8 @@
 #endif
 
 VS_VERSION_INFO VERSIONINFO
-FILEVERSION             0,1,4,0
-PRODUCTVERSION          0,1,4,0
+FILEVERSION             0,1,5,0
+PRODUCTVERSION          0,1,5,0
 BEGIN
 	BLOCK "StringFileInfo"
 	BEGIN
@@ -19,12 +19,12 @@ BEGIN
         BEGIN
 		VALUE "CompanyName",      "FluffierKittens"
 		VALUE "FileDescription",  "SnowRunner UI Changes Injector"
-		VALUE "FileVersion",      "V0.1.4"
+		VALUE "FileVersion",      "V0.1.5"
 		VALUE "InternalName",     "SRUICInjector.exe"
 		VALUE "LegalCopyright",   "(C)2024 Ian Nickerson"
 		VALUE "OriginalFilename", "SRUICInjector.exe"
 		VALUE "ProductName",      "SnowRunner UI Changes"
-		VALUE "ProductVersion",	  "V0.1.4"
+		VALUE "ProductVersion",	  "V0.1.5"
         END
 	END
 	BLOCK "VarFileInfo"
