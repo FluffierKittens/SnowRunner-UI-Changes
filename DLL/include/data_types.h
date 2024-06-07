@@ -2,10 +2,10 @@
 
 class ControllerState {
 public:
-	char pad_000[2904];		//0x000					
-	XINPUT_GAMEPAD X360;		//0xB58 
-	char pad_B64[8];		//0xB64 
-	DWORD dGetStateSuccess;		//0xB6C 
+	char pad_000[5632];			//0x0000				
+	XINPUT_GAMEPAD X360;		//0x1600 
+	char pad_160C[8];			//0x160C
+	DWORD dGetStateSuccess;		//0x1614
 };
 
 class TruckAction {
