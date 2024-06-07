@@ -59,7 +59,7 @@ void Init()
     freopen_s(&file, "CONOUT$", "w", stderr);
 #endif
 
-    CONSOLE_LOG("SnowRunner UI Changes v0.1.7 (for version 1.469305.SNOW_DLC_12)")
+    CONSOLE_LOG("SnowRunner UI Changes v0.1.8 (for version 1.510203.SNOW_DLC_13)")
 
 	//Set our hook
     DetourRestoreAfterWith();
