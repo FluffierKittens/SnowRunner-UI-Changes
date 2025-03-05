@@ -10,8 +10,8 @@
 #endif
 
 VS_VERSION_INFO VERSIONINFO
-FILEVERSION             0,1,13,0
-PRODUCTVERSION          0,1,13,0
+FILEVERSION             0,1,15,0
+PRODUCTVERSION          0,1,15,0
 BEGIN
 	BLOCK "StringFileInfo"
 	BEGIN
@@ -19,12 +19,12 @@ BEGIN
         BEGIN
 		VALUE "CompanyName",      "FluffierKittens"
 		VALUE "FileDescription",  "SnowRunner UI Changes Library"
-		VALUE "FileVersion",      "V0.1.13"
+		VALUE "FileVersion",      "V0.1.15"
 		VALUE "InternalName",     "SRUIC.dll"
-		VALUE "LegalCopyright",   "(C)2024 Ian Nickerson"
+		VALUE "LegalCopyright",   "(C)2025 Ian Nickerson"
 		VALUE "OriginalFilename", "SRUIC.dll"
 		VALUE "ProductName",      "SnowRunner UI Changes"
-		VALUE "ProductVersion",	  "V0.1.13"
+		VALUE "ProductVersion",	  "V0.1.15"
         END
 	END
 	BLOCK "VarFileInfo"
