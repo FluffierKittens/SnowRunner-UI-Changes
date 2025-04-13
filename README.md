@@ -27,7 +27,7 @@ Upon exiting fast mode, your original gear setting is restored.
 The quick winch cancel button (B) is only compatible with Xbox controllers at this time. Testing indicates that [DS4Windows](https://ds4-windows.com/) with [HidHide](https://ds4-windows.com/download/hidhide/), using Xbox 360 emulation mode, also works.
 
 
-This mod is only compatible with SnowRunner.exe version 1.594075.SNOW_DLC_14
+This mod is only compatible with SnowRunner.exe version 1.663329.SNOW_DLC_15
 
 ## Installation
 1. Download the latest release from [here](https://github.com/FluffierKittens/SnowRunner-UI-Changes/releases).
