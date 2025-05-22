@@ -59,7 +59,7 @@ void Init()
     freopen_s(&file, "CONOUT$", "w", stderr);
 #endif
 
-    CONSOLE_LOG("SnowRunner UI Changes v0.1.16 (for version 1.663329.SNOW_DLC_15)")
+    CONSOLE_LOG("SnowRunner UI Changes v0.1.17 (for version 1.663329.SNOW_DLC_15)")
 
 	//Set our hook
     DetourRestoreAfterWith();
@@ -161,7 +161,7 @@ void Hook_GetControllerState(ControllerState * pCS)
 					{
 						//We've just released
 						
-						CONSOLE_LOG("Winch operation canceled")
+						CONSOLE_LOG("Winch operation canceled.")
 						pDL->bWinchView = 0;
 					}
 					
